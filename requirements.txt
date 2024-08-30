@@ -1,2 +1,6 @@
 fastapi
 uvicorn
+pan-aadhar-ocr
+python-multipart
+python-dotenv
+requests
