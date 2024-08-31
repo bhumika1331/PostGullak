@@ -1,6 +1,6 @@
 'use client';
 
-import { GoogleMap, Libraries, Marker, StandaloneSearchBox, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, Libraries, Marker, useJsApiLoader } from '@react-google-maps/api';
 import React, { useCallback, useRef, useState } from 'react';
 
 const containerStyle = {
@@ -48,8 +48,8 @@ const Map: React.FC = () => {
   });
 
   const mapRef = useRef<google.maps.Map | null>(null);
-  const searchBoxRef = useRef<google.maps.places.SearchBox | null>(null);
   const [zoomLevel, setZoomLevel] = useState<number>(5); // Initial zoom level
+  const [searchTerm, setSearchTerm] = useState<string>(''); // Search term state
 
   const onLoad = useCallback((map: google.maps.Map) => {
     mapRef.current = map;
@@ -58,18 +58,6 @@ const Map: React.FC = () => {
     bounds.extend({ lat: indiaBounds.south, lng: indiaBounds.west });
     map.fitBounds(bounds);
   }, []);
-
-  const onPlacesChanged = () => {
-    const places = searchBoxRef.current?.getPlaces();
-    if (places && places.length > 0) {
-      const location = places[0].geometry?.location;
-      if (location) {
-        mapRef.current?.panTo(location);
-        mapRef.current?.setZoom(10);
-        setZoomLevel(10);
-      }
-    }
-  };
 
   const onMarkerClick = (details: string) => {
     alert(details); // Replace this with a custom modal or info window if needed
@@ -81,6 +69,10 @@ const Map: React.FC = () => {
     }
   };
 
+  const filteredMarkers = markersData.filter(marker =>
+    marker.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   if (!isLoaded) {
     return <div>Loading...</div>;
   }
@@ -88,16 +80,14 @@ const Map: React.FC = () => {
   return (
     <div className="relative w-full h-full">
       <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-10 w-full max-w-md px-4">
-        <StandaloneSearchBox
-          onLoad={(ref) => (searchBoxRef.current = ref)}
-          onPlacesChanged={onPlacesChanged}
-        >
-          <input
-            type="text"
-            placeholder="Search Google Maps"
-            className="w-full h-12 px-4 text-lg text-gray-700 rounded-full shadow-md focus:outline-none"
-          />
-        </StandaloneSearchBox>
+        {/* Custom Search Box */}
+        <input
+          type="text"
+          placeholder="Search for the demography of a location..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full h-12 px-4 text-base text-gray-700 rounded-full shadow-md focus:outline-none"
+        />
       </div>
 
       <GoogleMap
@@ -119,8 +109,8 @@ const Map: React.FC = () => {
           gestureHandling: 'cooperative',
         }}
       >
-        {zoomLevel >= 7 && // Only show markers if zoom level is 7 or higher
-          markersData.map((marker) => (
+        {zoomLevel >= 6 && // Only show markers if zoom level is 7 or higher
+          filteredMarkers.map((marker) => (
             <Marker
               key={marker.id}
               position={marker.position}
