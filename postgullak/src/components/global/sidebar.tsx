@@ -1,10 +1,10 @@
 "use client";
 import { cn } from "@/lib/utils";
 import {
-    IconArrowLeft,
-    IconBrandTabler,
-    IconSettings,
-    IconUserBolt,
+  IconArrowLeft,
+  IconBrandTabler,
+  IconSettings,
+  IconUserBolt,
 } from "@tabler/icons-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -83,7 +83,9 @@ export default function SidebarDemo({
         </SidebarBody>
       </Sidebar>
       {/* <Dashboard /> */}
+      <div className="w-full ">
       {children}
+      </div>
     </div>
   );
 }

@@ -1,12 +1,12 @@
 'use client';
 
-import Header from '@/components/home/header';
+import Header from '@/components/home/iheader';
 
 function MyApp({ Component, pageProps }: any) {
   return (
     <>
       <Header />
-      <Component {...pageProps} />
+      {/* <Component {...pageProps} /> */}
     </>
   );
 }
