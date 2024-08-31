@@ -27,7 +27,7 @@ const markersData = [
   {
     id: 1,
     position: { lat: 28.6139, lng: 77.2090 }, // New Delhi
-    iconUrl: '/custom-icon-1.png',
+    iconUrl: '/home/marker.png',
     title: 'New Delhi',
     details: 'Capital of India',
   },
