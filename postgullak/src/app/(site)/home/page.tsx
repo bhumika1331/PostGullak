@@ -12,3 +12,4 @@ function MyApp({ Component, pageProps }: any) {
 }
 
 export default MyApp;
+
