@@ -4,8 +4,8 @@ import React from "react";
 
 const Header: React.FC = () => {
 return (
-<div className="flex flex-row w-full justify-between h-auto items-center bg-white p-4 shadow-md">
-    <div className="flex items-center">
+<div className="flex flex-row w-full justify-between h-auto items-center text-black bg-white p-4 shadow-md">
+    <div className="flex items-center text-black">
     <Image
         src="/home/postlogo (2).png"
         alt="India Post"
