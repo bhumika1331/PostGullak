@@ -36,7 +36,7 @@ const SignInPage: React.FC = () => {
     // Simulate verifying the OTP and logging in the user
     setTimeout(() => {
       setMessage('Login successful!');
-      router.push('/home'); // Redirect to /home after successful OTP verification
+      router.push('/post'); // Redirect to /home after successful OTP verification
     }, 2000);
   };
 
