@@ -31,7 +31,7 @@ const Dashboard: React.FC = () => {
 
     // Static data for Uttar Pradesh
     const staticData: DemographyData = {
-        men: stateData., // Example data
+        men: 100000000, // Example data
         women: 90000000, // Example data
     };
 
@@ -86,7 +86,7 @@ const Dashboard: React.FC = () => {
     };
 
     return (
-        <div className="dashboard">
+        <div className="dashboard text-black">
             <div className="input-container">
                 <label htmlFor="stateInput">Enter State Name:</label>
                 <input
