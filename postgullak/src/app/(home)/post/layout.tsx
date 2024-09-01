@@ -1,7 +1,7 @@
-import SidebarDemo from "@/components/global/sidebar";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "./global.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,11 +17,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-      <SidebarDemo>
-        {children}
-        </SidebarDemo> 
-        </body>
+      <body className={`${inter.className} relative z-10`}>
+        <AuroraBackground className="absolute inset-0 z-0">
+          {children}
+        </AuroraBackground>
+      </body>
     </html>
   );
 }

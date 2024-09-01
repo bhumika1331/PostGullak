@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+
 const SignInPage: React.FC = () => {
   const [step, setStep] = useState(1);
   const [aadharNumber, setAadharNumber] = useState('');
@@ -36,7 +37,7 @@ const SignInPage: React.FC = () => {
     // Simulate verifying the OTP and logging in the user
     setTimeout(() => {
       setMessage('Login successful!');
-      router.push('/home'); // Redirect to /home after successful OTP verification
+      router.push('/demomap'); // Redirect to /home after successful OTP verification
     }, 2000);
   };
 
