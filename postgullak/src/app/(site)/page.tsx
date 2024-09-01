@@ -8,7 +8,7 @@ export default function Home() {
 
   useEffect(() => {
     // Redirect to the dashboard route
-    router.replace("/dashboard"); // Replace this with your actual dashboard route
+    router.replace("/post"); // Replace this with your actual dashboard route
   }, [router]);
 
   return null; // No need to render anything as the user is being redirected
