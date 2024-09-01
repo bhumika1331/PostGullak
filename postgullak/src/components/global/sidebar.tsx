@@ -15,7 +15,7 @@ export default function SidebarDemo({
   const links = [
     {
       label: "Dashboard",
-      href: "#",
+      href: "/home",
       icon: (
         <IconBrandTabler className="text-white dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
