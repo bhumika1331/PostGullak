@@ -6,13 +6,14 @@ import {
   IconUserBolt
 } from "@tabler/icons-react";
 import { useState } from "react";
-import { FaPenSquare } from 'react-icons/fa';
+import { FaChartBar, FaPenSquare } from 'react-icons/fa';
 import { Sidebar, SidebarBody, SidebarLink } from "../ui/sidebar";
 
 export default function SidebarDemo({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   const links = [
+
     {
       label: "Demographic Map",
       href: "/demomap",
@@ -22,8 +23,17 @@ export default function SidebarDemo({
       ),
     },
     {
+      label: "Dashboard",
+      href: "/dashboard",
+      icon: (
+        
+        <FaChartBar className="text-white dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+      ),
+    },
+    
+    {
       label: "Post Office savings schemes",
-      href: "/demomap",
+      href: "/scheme",
       icon: (
         
         <IconBrandTabler className="text-white dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
