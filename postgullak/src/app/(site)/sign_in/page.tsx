@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import React, { useState } from 'react';
 
 const SignInPage: React.FC = () => {
   const [step, setStep] = useState(1);
@@ -36,7 +36,7 @@ const SignInPage: React.FC = () => {
     // Simulate verifying the OTP and logging in the user
     setTimeout(() => {
       setMessage('Login successful!');
-      router.push('/post'); // Redirect to /home after successful OTP verification
+      router.push('/demomap'); // Redirect to /home after successful OTP verification
     }, 2000);
   };
 

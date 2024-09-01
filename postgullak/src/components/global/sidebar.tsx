@@ -3,10 +3,10 @@ import { cn } from "@/lib/utils";
 import {
   IconArrowLeft,
   IconBrandTabler,
-  IconSettings,
-  IconUserBolt,
+  IconUserBolt
 } from "@tabler/icons-react";
 import { useState } from "react";
+import { FaPenSquare } from 'react-icons/fa';
 import { Sidebar, SidebarBody, SidebarLink } from "../ui/sidebar";
 
 export default function SidebarDemo({
@@ -14,24 +14,27 @@ export default function SidebarDemo({
 }: Readonly<{ children: React.ReactNode }>) {
   const links = [
     {
-      label: "Dashboard",
-      href: "/home",
-      icon: (
-        <IconBrandTabler className="text-white dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
-      ),
-    },
-    {
       label: "Demographic Map",
       href: "/demomap",
       icon: (
+        
         <IconUserBolt className="text-white dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     {
-      label: "Post Offices Savings Schemes", 
+      label: "Post Office savings schemes",
+      href: "/demomap",
+      icon: (
+        
+        <IconBrandTabler className="text-white dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        
+      ),
+    },
+    {
+      label: "Cibil Score", 
       href: "#",
       icon: (
-        <IconSettings className="text-white dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <FaPenSquare className=" dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
       ),
     },
     // {
